@@ -1,0 +1,25 @@
+// main file
+$corp-green: #0a7e0f;
+$main-font: 'Montserrat', sans-serif;
+$desktop-width: 1200px;
+
+@import "normalize.scss";
+@import "navigation.scss";
+
+html {
+        height: 100%;
+        box-sizing: border-box;
+}
+body {
+    position: relative;
+    margin: 0;
+    min-height: 100%;
+}
+header {
+        background-color: lavender;
+        width: 100%;
+        height: 130px;
+        .shop-logo{
+            width: 60px;
+        }
+}
