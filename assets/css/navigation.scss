@@ -1,21 +1,44 @@
 .navigation {
-    width: 100%;
-    margin: 5px;
-    font-size: 75px;
+    font-size: 20px;
     font-family: $main-font;
-
     .nav {
         float: right;
         li {
-            text-align: center;
+            text-align: right;
             a {
-                color: $corp-green;
+                color: $corp-violett;
+            }
+        }
+        div {
+            img {
+                position: absolute;
+                top: 6px;
+                right: 30px;
+                height: 55px;
+                cursor: pointer;
+                &:hover {
+                    transform: scale(1.05);
+                }
             }
         }
     }
     .nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
-        color: white;
-        background-color: $corp-green;
+        color: $corp-violett;;
+        background-color: $corp-dark-pink-hover;
     }
-
+    .nav>li>a:focus, .nav>li>a:hover {
+        opacity: 0.6;
+        background-color: transparent;
+    }
+}
+@media (min-width: $screen-md-min) {
+    .navigation {
+        font-size: 16px;
+        float: right;
+    }
+}
+@media (min-width: $screen-lg-min)  {
+    .navigation {
+        font-size: 20px;
+    }
 }
