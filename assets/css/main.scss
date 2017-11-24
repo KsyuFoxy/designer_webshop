@@ -12,6 +12,7 @@ $input-border: 1px solid $corp-dark-pink-hover;
 
 @import "normalize.scss";
 @import "navigation.scss";
+@import "carousel.scss";
 
 html {
     height: 100%;
@@ -83,6 +84,30 @@ header {
             padding: 5px;
 
         }
+    }
+    .scroll-header {
+        position: fixed;
+        width: 100%;
+        z-index: 1;
+        background-color: $corp-violett;
+        transition: 2000;
+        .header-content {
+            height: 70px;
+            line-height: 56px;
+            .glyphicon {
+                color: white;
+            }
+            .navigation {
+                a {
+                    color: white;
+                }
+            }
+            .shop-logo {
+                height: 76px;
+            }
+        }
+
+
     }
 
 }

@@ -31,6 +31,9 @@
         background-color: transparent;
     }
 }
+.header-content-onscroll {
+    background-color: $corp-violett;
+}
 @media (min-width: $screen-md-min) {
     .navigation {
         font-size: 16px;

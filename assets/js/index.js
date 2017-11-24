@@ -24,3 +24,31 @@ $(window).on('load resize', function mobileViewUpdate() {
         $('.header-content').removeClass('container-fluid').addClass('container');
     }
 });
+
+//image carousel
+$(document).ready(function(){
+  $('.image-carousel').slick({
+      dots: true,
+      infinite: true,
+      speed: 700,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 5000,
+
+  });
+ $(document).scroll(function() {
+     if ($(document).scrollTop() > 15) {
+         $('.shop-logo img').attr('src', 'assets/images/ND_logo_v2_scroll.png');
+         $('.header-content').parent('div').addClass('scroll-header', 1000, "easeOut")
+     }
+     else {
+        $('.shop-logo img').attr('src', 'assets/images/ND_logo_v2.png');
+        $('.header-content').parent('div').removeClass('scroll-header');
+     }
+
+
+
+
+  })
+});
