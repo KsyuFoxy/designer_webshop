@@ -40,11 +40,11 @@ $(document).ready(function(){
  $(document).scroll(function() {
      if ($(document).scrollTop() > 15) {
          $('.shop-logo img').attr('src', 'assets/images/ND_logo_v2_scroll.png');
-         $('.header-content').parent('div').addClass('scroll-header', 1000, "easeOut")
+         $('.header-content').parent('div').removeClass('scroll-header-up').addClass('scroll-header-down');
      }
      else {
         $('.shop-logo img').attr('src', 'assets/images/ND_logo_v2.png');
-        $('.header-content').parent('div').removeClass('scroll-header');
+        $('.header-content').parent('div').removeClass('scroll-header-down').addClass('scroll-header-up');
      }
 
 

@@ -6,6 +6,7 @@
     }
     .slick-prev {
         left: 1em;
+        z-index: 1;
         &:before {
             font-size: 30px;
             color: white;
