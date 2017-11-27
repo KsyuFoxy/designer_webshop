@@ -37,6 +37,7 @@ $(document).ready(function(){
       autoplaySpeed: 5000,
 
   });
+ // scroll nav
  $(document).scroll(function() {
      if ($(document).scrollTop() > 15) {
          $('.shop-logo img').attr('src', 'assets/images/ND_logo_v2_scroll.png');
@@ -46,9 +47,29 @@ $(document).ready(function(){
         $('.shop-logo img').attr('src', 'assets/images/ND_logo_v2.png');
         $('.header-content').parent('div').removeClass('scroll-header-down').addClass('scroll-header-up');
      }
-
-
-
-
   })
 });
+
+// get products details from products.js
+
+$(window).on('load', function () {
+    var items = $();
+    for(i = 0; i < products.length; i++) {
+        items = items.add(
+            '<div class="item-wrapper col-xs-12 col-sm-6 col-md-4 col-lg-3">' +
+                '<div class="item-content">' +
+                    '<div class="item-like-icon glyphicon glyphicon-heart"></div>' +
+                    '<div class="item-image">' +
+                        '<img src="assets/images/' + products[i].image + ' ">' +
+                    '</div>' +
+                    '<p class="item-description">' + products[i].description + '</p>' +
+                    '<p class="item-price">' +
+                    '<span class="item-price-value">' + products[i].price + '</span>' +
+                    ' <span class="glyphicon glyphicon-eur"></span>' +
+                    '</p>' +
+                '</div>' +
+            '</div>'
+        )
+    }
+    $('.products-content-row').append(items);
+})

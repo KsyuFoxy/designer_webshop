@@ -13,6 +13,7 @@ $input-border: 1px solid $corp-dark-pink-hover;
 @import "normalize.scss";
 @import "navigation.scss";
 @import "carousel.scss";
+@import "products.scss";
 
 html {
     height: 100%;
@@ -64,11 +65,13 @@ header {
         }
     }
     .search-additional-content {
+        position: relative;
         display: none;
         width: 100%;
         height: auto;
         margin-top: -15px;
         padding: 15px;
+        z-index: 1;
         color: $corp-lightviolett;
         background-color: $corp-bg-color;
         .glyphicon  {
