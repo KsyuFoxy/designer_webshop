@@ -72,4 +72,7 @@ $(window).on('load', function () {
         )
     }
     $('.products-content-row').append(items);
+    $('.item-content').click(function() {
+        console.log("show item details")
+    })
 })
