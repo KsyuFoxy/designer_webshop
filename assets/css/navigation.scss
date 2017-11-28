@@ -1,22 +1,35 @@
 .navigation {
-    font-size: 20px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 40px;
     font-family: $main-font;
     .nav {
-        float: right;
+        position: relative;
+        background-color: #ffffff80;
+        z-index: 1;
         li {
             text-align: right;
             a {
                 color: $corp-violett;
+                // font-size: 40px;
+                &:hover {
+                    cursor: pointer;
+                }
             }
         }
         div {
+            display: block;
+            position: relative;
+            height: 60px;
             img {
                 position: absolute;
-                top: 6px;
-                right: 30px;
+                top: 0.2em;
+                right: 1em;
                 height: 55px;
-                cursor: pointer;
+
                 &:hover {
+                    cursor: pointer;
                     transform: scale(1.05);
                 }
             }
@@ -36,8 +49,12 @@
 }
 @media (min-width: $screen-md-min) {
     .navigation {
+        position: relative;
         font-size: 16px;
         float: right;
+        .nav {
+            background-color: transparent;
+        }
     }
 }
 @media (min-width: $screen-lg-min)  {

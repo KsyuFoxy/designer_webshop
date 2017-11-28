@@ -1,5 +1,6 @@
+var viewportWidth = $(window).width();
+
 $(window).on('load resize', function mobileViewUpdate() {
-    var viewportWidth = $(window).width();
     if (viewportWidth < 768) {
         $(".nav").addClass("nav-stacked");
         $('.header-content').removeClass('container').addClass('container-fluid');
@@ -10,15 +11,14 @@ $(window).on('load resize', function mobileViewUpdate() {
             $('.nav li').fadeToggle();
             $('.nav-menu-close').toggle();
             $('.nav-menu-open').toggle();
+            hideSearch();
         });
         $('.search-icon').click(function() {
             $('.search-icon').toggleClass('glyphicon-search').toggleClass('glyphicon-remove');
             $('.search-additional-content').slideToggle();
+            hideNav();
         })
     }
-    // if (viewportWidth < 991) {
-    //
-    // }
     else {
         $(".nav").removeClass("nav-stacked");
         $('.header-content').removeClass('container-fluid').addClass('container');
@@ -42,23 +42,26 @@ $(document).ready(function(){
      if ($(document).scrollTop() > 15) {
          $('.shop-logo img').attr('src', 'assets/images/ND_logo_v2_scroll.png');
          $('.header-content').parent('div').removeClass('scroll-header-up').addClass('scroll-header-down');
+         var menuWhiteIcon = $('.nav-menu-open').attr("src").replace("assets/images/nav_menu_image_small.png", "assets/images/nav_menu_image_small_hover.png");
+         $('.nav-menu-open').attr("src", menuWhiteIcon);
      }
      else {
         $('.shop-logo img').attr('src', 'assets/images/ND_logo_v2.png');
         $('.header-content').parent('div').removeClass('scroll-header-down').addClass('scroll-header-up');
+        var menuViolettIcon = $('.nav-menu-open').attr("src").replace("assets/images/nav_menu_image_small_hover.png", "assets/images/nav_menu_image_small.png");
+        $('.nav-menu-open').attr("src", menuViolettIcon);
      }
   })
 });
 
 // get products details from products.js
-
 $(window).on('load', function () {
     var items = $();
     for(i = 0; i < products.length; i++) {
         items = items.add(
             '<div class="item-wrapper col-xs-12 col-sm-6 col-md-4 col-lg-3">' +
                 '<div class="item-content">' +
-                    '<div class="item-like-icon glyphicon glyphicon-heart"></div>' +
+                    '<div class="item-like-icon glyphicon glyphicon-heart-empty"></div>' +
                     '<div class="item-image">' +
                         '<img src="assets/images/' + products[i].image + ' ">' +
                     '</div>' +
@@ -72,7 +75,54 @@ $(window).on('load', function () {
         )
     }
     $('.products-content-row').append(items);
-    $('.item-content').click(function() {
-        console.log("show item details")
+    $('.item-description, .item-image').hover(function(e) {
+        $(this).parent().toggleClass('item-content-hover');
+    });
+
+    // product modal
+    // $('.item-content').click(function() {
+    //     // $('.modal-content').append(thisItem);
+    //     TweenLite.to($("#productModal"), 1, {className:"product-modal-show", delay:0.5, ease:Elastic.easeOut.config(1, 0.5)});
+    //     $(".close-productModal").click(function() {
+    //         TweenLite.to($("#productModal"), 1, {className:"product-modal", ease:Power3.easeIn});
+    //     })
+    // })
+
+    // likes
+    $('.item-like-icon').click(function(e) {
+        $(e.target).toggleClass('glyphicon-heart-empty').toggleClass('glyphicon-heart');
     })
+    // new product page
+    $('.item-description, .item-image').click(function(e) {
+        var choosenItemIndex = $(this).parent().index('.item-content');
+        $('.main-images-section, .products-content').hide();
+        $('.product-details').show();
+        $('.product-image ').find('img').attr('src', 'assets/images/' + products[choosenItemIndex].image);
+        $('.product-description').text(products[choosenItemIndex].description);
+        $('.product-price-value').text(products[choosenItemIndex].price);
+        if(viewportWidth < 768) {
+            hideNav();
+            hideSearch();
+        }
+        $('.back-arrow').click(function() {
+            $('.main-images-section, .products-content').show();
+            $('.product-details').hide();
+            if (viewportWidth < 768) {
+                hideNav();
+                hideSearch();
+            }
+
+        })
+    })
+
+
 })
+function hideNav() {
+    $('.nav li').hide();
+    $('.nav-menu-close').hide();
+    $('.nav-menu-open').show();
+}
+function hideSearch() {
+    $('.search-additional-content').slideUp();
+    $('.search-icon').addClass('glyphicon-search').removeClass('glyphicon-remove');
+}

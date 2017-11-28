@@ -5,18 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> -->
     <title>Designer webshop project</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,800" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css"/>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css"/>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,800" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.0/animate.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/main.min.css">
-
-    <script type="text/javascript" src="assets/js/index.js"></script>
-    <script type="text/javascript" src="assets/js/products.js"></script>
-
 </head>
 <body>
     <header>
@@ -61,10 +58,37 @@
     </section>
     <section class="products-content container">
         <div class="row products-content-row justify-content-md-center">
+        </div>
+    </section>
+    <!-- <section class="product-details">
+        <div id="productModal" class="product-modal">
+            <div class="close-productModal">X</div>
+            <div class="modal-content">
 
+            </div>
+        </div>
+    </section> -->
+    <section id="productDetails" class="product-details container">
+        <div class="row">
+            <div class="product-image col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <img src="">
+            </div>
+            <div class="product-info col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <p class="product-description"></p>
+                <p class="product-price">
+                    <span class="product-price-value"></span>
+                    <span class="glyphicon glyphicon-eur"></span>
+                </p>
+                <button class="cart-button" type="button" name="button">add to cart <span class="glyphicon glyphicon-shopping-cart"></span></button>
+            </div>
+        </div>
+        <div class="back-arrow glyphicon glyphicon-menu-left">
         </div>
     </section>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/10.3.5/lazyload.min.js"></script>
+<script type="text/javascript" src="assets/js/index.js"></script>
+<script type="text/javascript" src="assets/js/products.js"></script>
 </body>
 </html>

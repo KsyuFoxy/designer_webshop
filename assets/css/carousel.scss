@@ -5,7 +5,7 @@
     }
     .slick-prev {
         left: 1em;
-        z-index: 1;
+        z-index: 0;
         &:before {
             font-size: 30px;
             color: white;
@@ -32,6 +32,9 @@
         color: white;
         opacity: 1;
         font-size: 12px;
+    }
+    .slick-list {
+        z-index: -1;
     }
 }
 @media (min-width: $screen-md-min) {
