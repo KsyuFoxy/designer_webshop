@@ -25,6 +25,12 @@ body {
     margin: 0;
     min-height: 100%;
 }
+h2 {
+    font-family: $main-font;
+    font-size: 20px;
+    color: $corp-violett;
+    text-align: center;
+}
 header {
     width: 100%;
     height: 60px;
@@ -64,6 +70,15 @@ header {
             border: $input-border;
             color: $corp-lightviolett;
             padding: 5px;
+        }
+        .shopping-cart-quantity {
+            display: inline-block;
+            position: relative;
+            left: -2.9em;
+            top: -0.7em;
+            color: white;
+            font-size: 11px;
+            z-index: 2;
         }
     }
     .search-additional-content {

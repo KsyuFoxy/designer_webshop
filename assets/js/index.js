@@ -79,15 +79,6 @@ $(window).on('load', function () {
         $(this).parent().toggleClass('item-content-hover');
     });
 
-    // product modal
-    // $('.item-content').click(function() {
-    //     // $('.modal-content').append(thisItem);
-    //     TweenLite.to($("#productModal"), 1, {className:"product-modal-show", delay:0.5, ease:Elastic.easeOut.config(1, 0.5)});
-    //     $(".close-productModal").click(function() {
-    //         TweenLite.to($("#productModal"), 1, {className:"product-modal", ease:Power3.easeIn});
-    //     })
-    // })
-
     // likes
     $('.item-like-icon').click(function(e) {
         $(e.target).toggleClass('glyphicon-heart-empty').toggleClass('glyphicon-heart');
@@ -114,7 +105,47 @@ $(window).on('load', function () {
 
         })
     })
+    var cart =  $('.shopping-cart-quantity');
+    var cartQty = cart.text() === 0;
+    if (cartQty === 0) {
+        cart.hide();
+    }
+    else {
+        cart.show();
+    }
+    var cartItems = $();
 
+    $('.cart-button').click(function(e) {
+        cart.text(cartQty += 1);
+        cart.show();
+        var itemQty = 1;
+        var itemInfo = $(e.target).parent();
+        var itemPrice = itemInfo.find('.product-price').text();
+        cartItems = cartItems.add(
+            '<div class="row cart-product-content">' +
+                '<span class="cart-product-number col-md-1">1</span>' +
+                '<span class="cart-product-name col-md-3">' + itemInfo.find('.product-description').text() + '</span>' +
+                '<span class="cart-product-image col-md-2">' +
+                    '<img src="' + itemInfo.parent().find('.product-image img').attr("src") + '">' +
+                '</span>' +
+                '<span class="cart-product-price col-md-1">' + itemPrice + '</span>' +
+                '<span class="cart-product-qty col-md-1">' + itemQty + '</span>' +
+                '<span class="delete-cart-product col-md-2">x</span>' +
+                '<span class="cart-product-amount col-md-2">' + parseFloat(itemQty*itemPrice, 10).toString() + '</span>' +
+            '</div>'
+
+        )
+        $('.cart-product-details').append(cartItems);
+        $('.cart-product-name').text()
+    })
+    cart.click(function() {
+        // cart modal
+            // $('.modal-content').append(thisItem);
+            TweenLite.to($("#cartModal"), 1, {className:"cart-modal-show", delay:0.5, ease:Elastic.easeOut.config(1, 0.5)});
+            $(".close-cartModal").click(function() {
+                TweenLite.to($("#cartModal"), 1, {className:"cart-modal", ease:Power0.easeIn});
+            })
+    })
 
 })
 function hideNav() {

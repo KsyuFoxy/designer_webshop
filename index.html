@@ -28,6 +28,7 @@
                     <span class="glyphicon glyphicon-search search-icon"></span>
                     <input type="search" class="search hidden-xs hidden-sm" name="" value="" autocomplete="off" placeholder="Search">
                     <span class="glyphicon glyphicon-shopping-cart"></span>
+                    <div class="shopping-cart-quantity"></div>
                 </div>
                 <div class="search-additional-content">
                     <span class="glyphicon glyphicon-search"></span>
@@ -48,6 +49,29 @@
             </div>
         </div>
     </header>
+    <section class="cart-details">
+        <div id="cartModal" class="cart-modal">
+            <div class="close-cartModal">X</div>
+            <div class="modal-content container-fluid">
+                <h2>Your cart contain:</h2>
+                <div class="row cart-product-details">
+                    <div class="cart-product-header">
+                        <span class="cart-product-number col-md-1">#</span>
+                        <span class="cart-product-name col-md-3">Name</span>
+                        <span class="cart-product-image col-md-2">
+                            Image
+                        </span>
+                        <span class="cart-product-price col-md-1">Price</span>
+                        <span class="cart-product-qty col-md-1">Q-ty</span>
+                        <span class="delete-cart-product col-md-2">Delete</span>
+                        <span class="cart-product-amount col-md-2">Total</span>
+                    </div>
+                    <!-- <div class="row cart-product-content">
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="main-images-section">
         <div class="image-carousel">
             <img src="assets/images/new_year_home_decor_3.jpg" alt="devor 3">
@@ -60,14 +84,6 @@
         <div class="row products-content-row justify-content-md-center">
         </div>
     </section>
-    <!-- <section class="product-details">
-        <div id="productModal" class="product-modal">
-            <div class="close-productModal">X</div>
-            <div class="modal-content">
-
-            </div>
-        </div>
-    </section> -->
     <section id="productDetails" class="product-details container">
         <div class="row">
             <div class="product-image col-xs-12 col-sm-12 col-md-6 col-lg-6">
@@ -85,6 +101,7 @@
         <div class="back-arrow glyphicon glyphicon-menu-left">
         </div>
     </section>
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/10.3.5/lazyload.min.js"></script>
