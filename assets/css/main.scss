@@ -30,6 +30,7 @@ h2 {
     font-size: 20px;
     color: $corp-violett;
     text-align: center;
+    margin: 2em 0;
 }
 header {
     width: 100%;
@@ -181,6 +182,11 @@ header {
                 margin: 0 30px;
             }
         }
-
+        .shop-additional-icons {
+            .shopping-cart-quantity {
+                left: -4.3em;
+            }
+        }
     }
+
 }

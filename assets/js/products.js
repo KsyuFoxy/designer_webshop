@@ -6,9 +6,9 @@ var products = [
         price: '11.99'
     },
     {
-        name: 'Wreath_2',
-        description: 'Wreath',
-        image: 'Wreath_2.jpg',
+        name: 'Trees_1',
+        description: 'Trees',
+        image: 'Trees_1.jpg',
         price: '8.99'
     },
     {
@@ -18,9 +18,9 @@ var products = [
         price: '20.05'
     },
     {
-        name: 'Deer_1',
-        description: 'Deer',
-        image: 'Deer_1.jpg',
+        name: 'Gifts_1',
+        description: 'Gifts',
+        image: 'Gifts_1.jpg',
         price: '16.25'
     },
     {
@@ -31,9 +31,16 @@ var products = [
     },
     {
         name: 'Knur_santa',
-        description: 'Knur_santa',
+        description: 'Knur santa',
         image: 'Knur_santa.jpg',
         price: '9.00'
+    },
+    {
+        name: 'Candy_home_1',
+        description: 'Candy home',
+        image: 'Candy_home_1.jpg',
+        price: '9.00'
     }
+
 
 ]

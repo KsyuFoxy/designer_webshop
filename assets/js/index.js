@@ -26,19 +26,19 @@ $(window).on('load resize', function mobileViewUpdate() {
 });
 
 //image carousel
-$(document).ready(function(){
-  $('.image-carousel').slick({
-      dots: true,
-      infinite: true,
-      speed: 700,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      autoplay: true,
-      autoplaySpeed: 5000,
-
-  });
- // scroll nav
- $(document).scroll(function() {
+$(document).ready(function carouselGo(){
+    $('.image-carousel').slick({
+        dots: true,
+        infinite: true,
+        speed: 700,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 5000,
+      });
+});
+// scroll nav
+$(document).scroll(function() {
      if ($(document).scrollTop() > 15) {
          $('.shop-logo img').attr('src', 'assets/images/ND_logo_v2_scroll.png');
          $('.header-content').parent('div').removeClass('scroll-header-up').addClass('scroll-header-down');
@@ -51,8 +51,8 @@ $(document).ready(function(){
         var menuViolettIcon = $('.nav-menu-open').attr("src").replace("assets/images/nav_menu_image_small_hover.png", "assets/images/nav_menu_image_small.png");
         $('.nav-menu-open').attr("src", menuViolettIcon);
      }
-  })
 });
+
 
 // get products details from products.js
 $(window).on('load', function () {
@@ -102,7 +102,6 @@ $(window).on('load', function () {
                 hideNav();
                 hideSearch();
             }
-
         })
     })
     var cart =  $('.shopping-cart-quantity');
@@ -113,17 +112,18 @@ $(window).on('load', function () {
     else {
         cart.show();
     }
-    var cartItems = $();
-
     $('.cart-button').click(function(e) {
-        cart.text(cartQty += 1);
+        var cartItems = $();
+        var itemNumber = $('.cart-product-header').nextAll().length + 1;
+        cart.text(itemNumber);
         cart.show();
         var itemQty = 1;
         var itemInfo = $(e.target).parent();
         var itemPrice = itemInfo.find('.product-price').text();
+        var itemValue = parseFloat(itemQty*itemPrice, 10).toFixed(2);
         cartItems = cartItems.add(
             '<div class="row cart-product-content">' +
-                '<span class="cart-product-number col-md-1">1</span>' +
+                '<span class="cart-product-number col-md-1">' + itemNumber + '</span>' +
                 '<span class="cart-product-name col-md-3">' + itemInfo.find('.product-description').text() + '</span>' +
                 '<span class="cart-product-image col-md-2">' +
                     '<img src="' + itemInfo.parent().find('.product-image img').attr("src") + '">' +
@@ -131,20 +131,30 @@ $(window).on('load', function () {
                 '<span class="cart-product-price col-md-1">' + itemPrice + '</span>' +
                 '<span class="cart-product-qty col-md-1">' + itemQty + '</span>' +
                 '<span class="delete-cart-product col-md-2">x</span>' +
-                '<span class="cart-product-amount col-md-2">' + parseFloat(itemQty*itemPrice, 10).toString() + '</span>' +
+                '<span class="cart-product-amount col-md-2">' + itemValue + '</span>' +
             '</div>'
-
         )
         $('.cart-product-details').append(cartItems);
-        $('.cart-product-name').text()
-    })
-    cart.click(function() {
-        // cart modal
-            // $('.modal-content').append(thisItem);
-            TweenLite.to($("#cartModal"), 1, {className:"cart-modal-show", delay:0.5, ease:Elastic.easeOut.config(1, 0.5)});
-            $(".close-cartModal").click(function() {
+        $('.cart-product-name').text();
+        //delete item from cart
+        $('.delete-cart-product').click(function(e) {
+            e.preventDefault();
+            $(this).parent().remove();
+            if ($('.cart-product-header').nextAll().length == 0) {
+                cart.hide();
                 TweenLite.to($("#cartModal"), 1, {className:"cart-modal", ease:Power0.easeIn});
-            })
+            }
+            cart.text($('.cart-product-header').nextAll().length);
+        })
+    })
+
+
+    $('.shopping-cart-icon').click(function() {
+        // cart modal open / close
+        TweenLite.to($("#cartModal"), 1, {className:"cart-modal-show", delay:0.5, ease:Elastic.easeOut.config(1, 0.5)});
+        $(".close-cartModal").click(function() {
+            TweenLite.to($("#cartModal"), 1, {className:"cart-modal", ease:Power0.easeIn});
+        })
     })
 
 })
@@ -157,3 +167,11 @@ function hideSearch() {
     $('.search-additional-content').slideUp();
     $('.search-icon').addClass('glyphicon-search').removeClass('glyphicon-remove');
 }
+// image zoom
+// var options = {
+//     width: 400,
+//     zoomWidth: 500,
+//     scale: 0.7,
+//     offset: {vertical: 0, horizontal: 10}
+// };
+// new ImageZoom(document.getElementById("productImage"), options);

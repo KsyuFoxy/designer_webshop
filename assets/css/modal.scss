@@ -55,6 +55,7 @@
     .cart-product-header {
         margin: 0 10px;
         height: 20px;
+        text-align: center;
         border-bottom: $input-border;
         background-color: $corp-lightviolett;
         span {
@@ -63,13 +64,18 @@
     }
     .cart-product-content {
         border-bottom: $input-border;
-        // span {
-        //     margin: 0 0.5em;
-        // }
+        margin: 1em 0;
+        text-align: center;
         .cart-product-image {
-            // width: 50px;
             img {
                 width: 50px;
+            }
+        }
+        .delete-cart-product {
+            &:hover {
+                cursor: pointer;
+                color: $corp-lightviolett;
+                transform: scale(1.3);
             }
         }
     }
