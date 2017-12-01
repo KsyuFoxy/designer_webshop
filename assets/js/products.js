@@ -40,6 +40,12 @@ var products = [
         description: 'Candy home',
         image: 'Candy_home_1.jpg',
         price: '9.00'
+    },
+    {
+        name: 'Wreath_2',
+        description: 'Wreath',
+        image: 'Wreath_2.jpg',
+        price: '4.10'
     }
 
 
